@@ -22,10 +22,12 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
     if (_formKey.currentState != null) {
       if (_formKey.currentState!.validate()) {
         _formKey.currentState!.save();
-        Navigator.of(context).push(
+        Navigator.of(context).pushAndRemoveUntil(
+          // pushAndRemoveUntil -> 현재 화면을 제거하고 새로운 화면을 띄움
           MaterialPageRoute(
             builder: (context) => const InterestsScreen(),
           ),
+          (route) => false, // false를 반환하면 현재 화면을 제거하고 새로운 화면을 띄움
         );
       }
     }
