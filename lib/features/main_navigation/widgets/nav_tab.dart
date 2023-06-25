@@ -8,12 +8,14 @@ class NavTab extends StatelessWidget {
       required this.text,
       required this.isSelected,
       required this.icon,
-      required this.onTap});
+      required this.onTap,
+      required this.selectIcon});
 
   final String text;
   final bool isSelected;
   final IconData icon;
   final Function onTap;
+  final IconData selectIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +31,9 @@ class NavTab extends StatelessWidget {
             child: Column(
               // 컬럼은 세로공간을 다 차지하려면 경향이 있음.
               mainAxisSize: MainAxisSize.min, // 차지하려는 공간을 최소한으로 바꿔줌
-
               children: [
                 FaIcon(
-                  icon,
+                  isSelected ? selectIcon : icon,
                   color: Colors.white,
                 ),
                 Gaps.v5,
