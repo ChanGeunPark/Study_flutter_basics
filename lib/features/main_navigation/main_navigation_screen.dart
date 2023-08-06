@@ -4,7 +4,7 @@ import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/features/main_navigation/widgets/nav_tab.dart';
 import 'package:tiktok_clone/features/main_navigation/widgets/post_video_button.dart';
-import 'package:tiktok_clone/features/main_navigation/widgets/stf_screen.dart';
+import 'package:tiktok_clone/features/video/video_timeline_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
@@ -15,24 +15,6 @@ class MainNavigationScreen extends StatefulWidget {
 
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
   int _selectedIndex = 0;
-
-  final screen = [
-    StfScreen(
-      // GlobalKey는 키를 통해 접근할 수 있게 해줌
-      // 각 화면을 서로 다른 widget인 것처럼 렌더링 해준다.
-      key: GlobalKey(),
-    ),
-    StfScreen(
-      key: GlobalKey(),
-    ),
-    Container(),
-    StfScreen(
-      key: GlobalKey(),
-    ),
-    StfScreen(
-      key: GlobalKey(),
-    ),
-  ];
 
   void _onTap(int index) {
     setState(() {
@@ -61,27 +43,27 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
           Offstage(
             // Offstage는 화면에 보이지 않게 해준다.
             offstage: _selectedIndex != 0, // 0이 아니면 보이지 않게
-            child: const StfScreen(),
+            child: const VideoTimelineScreen(),
           ),
           Offstage(
             // Offstage는 화면에 보이지 않게 해준다.
             offstage: _selectedIndex != 1, // 0이 아니면 보이지 않게
-            child: const StfScreen(),
+            child: const VideoTimelineScreen(),
           ),
           Offstage(
             // Offstage는 화면에 보이지 않게 해준다.
             offstage: _selectedIndex != 2, // 0이 아니면 보이지 않게
-            child: const StfScreen(),
+            child: const VideoTimelineScreen(),
           ),
           Offstage(
             // Offstage는 화면에 보이지 않게 해준다.
             offstage: _selectedIndex != 3, // 0이 아니면 보이지 않게
-            child: const StfScreen(),
+            child: const VideoTimelineScreen(),
           ),
           Offstage(
             // Offstage는 화면에 보이지 않게 해준다.
             offstage: _selectedIndex != 4, // 0이 아니면 보이지 않게
-            child: const StfScreen(),
+            child: const VideoTimelineScreen(),
           )
         ],
       ), // Stack은 여러 하나씩 쌓아서 위젯을 겹쳐서 보여준다.
